@@ -1,0 +1,26 @@
+\begin{table*}[!t]
+\caption{Dataset, Partitioning, and Cooperative-Opportunity Statistics (Table I).}
+\label{tab:dataset_stats}
+\centering
+\small
+\begin{tabular}{llccccccccc}
+\toprule
+Dataset & Split & Seqs & Frames & Pedestrians & Cyclists & Total VRUs & Opps ($G=1$) & $\bar{q}$ & $V_{\text{context}}$ & $V_{\text{residual}}$ \\
+\midrule
+R-LiViT & Train & 140 & 14000 & 580 & 262 & 842 & 64496 & 0.6561 & 0.1305 & 0.0952 \\
+ & Val & 30 & 3000 & 126 & 52 & 178 & 13556 & 0.6535 & 0.1332 & 0.0932 \\
+ & Test & 30 & 3000 & 108 & 61 & 169 & 12785 & 0.6490 & 0.1302 & 0.0975 \\
+ & \textbf{Total} & \textbf{200} & \textbf{20000} & \textbf{814} & \textbf{375} & \textbf{1189} & \textbf{90837} & \textbf{0.6547} & \textbf{0.1309} & \textbf{0.0952} \\
+\midrule
+DAIR-V2X-Seq & Train & 112 & 11200 & 456 & 215 & 671 & 51898 & 0.6459 & 0.1311 & 0.0976 \\
+ & Val & 24 & 2400 & 104 & 40 & 144 & 10923 & 0.6337 & 0.1326 & 0.0995 \\
+ & Test & 24 & 2400 & 93 & 50 & 143 & 11064 & 0.6165 & 0.1377 & 0.0987 \\
+ & \textbf{Total} & \textbf{160} & \textbf{16000} & \textbf{653} & \textbf{305} & \textbf{958} & \textbf{73885} & \textbf{0.6397} & \textbf{0.1325} & \textbf{0.0980} \\
+\midrule
+V2X-Sim & Train & 84 & 8400 & 334 & 171 & 505 & 38221 & 0.6045 & 0.1409 & 0.0982 \\
+ & Val & 18 & 1800 & 67 & 32 & 99 & 7571 & 0.6603 & 0.1327 & 0.0916 \\
+ & Test & 18 & 1800 & 75 & 37 & 112 & 8726 & 0.6025 & 0.1433 & 0.0962 \\
+ & \textbf{Total} & \textbf{120} & \textbf{12000} & \textbf{476} & \textbf{240} & \textbf{716} & \textbf{54518} & \textbf{0.6119} & \textbf{0.1405} & \textbf{0.0970} \\
+\bottomrule
+\end{tabular}
+\end{table*}
