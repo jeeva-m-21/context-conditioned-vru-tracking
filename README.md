@@ -31,6 +31,11 @@ pip install -r requirements.txt
   python3 reproduce.py --full
   ```
 
+* **Real 3-D LiDAR detector experiment** (evaluates PointPillars and CenterPoint on R-LiViT and DAIR-V2X-Seq):
+  ```bash
+  python3 scripts/run_real_detector_experiment.py
+  ```
+
 * **Regenerate tables and plots** (from existing raw logs):
   ```bash
   python3 reproduce.py --tables
