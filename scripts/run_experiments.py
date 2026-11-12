@@ -310,7 +310,7 @@ def run_tracker_on_sequence(
 
             # Record calibration metrics for this opportunity
             if tracker_config.mode != "sensor_only":
-                if tracker_config.mode == "fixed_q":
+                if tracker_config.mode in ("fixed_q", "two_sensor_ungated"):
                     all_q_pred.append(tracker_config.q_fixed)
                 elif tracker_config.mode == "ema":
                     all_q_pred.append(ema_val)

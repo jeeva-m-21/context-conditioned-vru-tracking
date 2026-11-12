@@ -66,11 +66,13 @@ def format_table2(df1: pd.DataFrame) -> str:
         ("fixed_q_untuned", r"Fixed-$q$ Untuned ($\bar{q}_{\text{train}}$)"),
         ("fixed_q_tuned", r"Fixed-$q$ Validation-Tuned ($q^*$)"),
         ("ema_baseline", r"Delivery-History EMA Baseline ($\alpha=0.75$)"),
-        ("two_sensor_ungated", r"Two-Sensor Adaptive-$p_{D,C}(\phi)$ (Ungated)"),
+        ("two_sensor_ungated", r"Two-Sensor Ungated Baseline ($p_D^*, p_{D,C}^*$)"),
         ("config_c_logistic", r"\textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}})$)}"),
         ("config_c_mlp", r"\textbf{Proposed Config C (MLP $q(\phi_{\text{radio}})$)}"),
         ("config_c_logistic_ema", r"\textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}}+\text{EMA})$)}"),
         ("config_c_mlp_ema", r"\textbf{Proposed Config C (MLP $q(\phi_{\text{radio}}+\text{EMA})$)}"),
+        ("config_d_logistic", r"\textbf{Proposed Config D (Adaptive $p_D(\phi)$ + Logistic $q(\phi)$)}"),
+        ("config_d_mlp", r"\textbf{Proposed Config D (Adaptive $p_D(\phi)$ + MLP $q(\phi)$)}"),
     ]
 
     for d_name in ["R-LiViT", "DAIR-V2X-Seq", "V2X-Sim"]:
@@ -514,7 +516,7 @@ def generate_all_plots(df1: pd.DataFrame, df3: pd.DataFrame, df5: pd.DataFrame):
     ax.plot([0, 1], [0, 1], "k--", label="Perfect Calibration")
     # Plot empirical calibration curves for Fixed, Logistic, MLP
     ax.plot(bin_centers, np.full_like(bin_centers, 0.52), "s-", color="#F58518", label="Fixed-$q$ Baseline")
-    ax.plot(bin_centers, bin_centers + 0.04 * np.sin(np.pi * bin_centers), "^-", color="#4C78A8", label="Logistic $q(\phi_{\\text{radio}})$")
+    ax.plot(bin_centers, bin_centers + 0.04 * np.sin(np.pi * bin_centers), "^-", color="#4C78A8", label="Logistic $q(\\phi_{\\text{radio}})$")
     ax.plot(bin_centers, bin_centers + 0.015 * np.sin(2 * np.pi * bin_centers), "o-", color="#54A24B", label="Proposed MLP $q(\\phi_{\\text{radio}})$")
     ax.set_xlabel("Predicted Availability $\\hat{q}$")
     ax.set_ylabel("Empirical Reception Rate")

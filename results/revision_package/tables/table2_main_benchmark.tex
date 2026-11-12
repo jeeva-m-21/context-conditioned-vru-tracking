@@ -8,65 +8,83 @@
 \toprule
 Dataset & Channel & Method & HOTA $\uparrow$ & DetA $\uparrow$ & AssA $\uparrow$ & IDF1 $\uparrow$ & OSPA $\bar{d}_2^{(10)}$ $\downarrow$ & Brier $\downarrow$ & ECE $\downarrow$ & $\Delta_{\text{boot}}$ HOTA vs Fixed-$q$ \\
 \midrule
-R-LiViT & Stochastic & Sensor-Only ($p_D=0.75$) & 72.17 & 71.43 & 76.32 & 71.58 & 0.3060 & -- (N/A) & -- (N/A) & [-6.12, -4.42] \\
- &  & Sensor-Only (Tuned $p_D^*$) & 76.38 & 73.00 & 83.34 & 77.69 & 0.2986 & -- (N/A) & -- (N/A) & [-1.96, -0.02] \\
- &  & Fixed-$q$ Untuned ($\bar{q}_{\text{train}}$) & 75.99 & 74.09 & 80.97 & 75.96 & 0.2876 & 0.2498 & 0.0429 & [-1.99, -0.65] \\
- &  & Fixed-$q$ Validation-Tuned ($q^*$) & 77.38 & 73.95 & 83.99 & 78.18 & 0.3006 & 0.2539 & 0.0693 & -- (Ref) \\
- &  & Delivery-History EMA Baseline ($\alpha=0.75$) & 79.72 & 75.54 & 87.18 & 81.62 & 0.2802 & 0.2658 & 0.1341 & [+1.69, +3.07] \\
- &  & Two-Sensor Adaptive-$p_{D,C}(\phi)$ (Ungated) & 77.74 & 76.99 & 81.60 & 78.19 & 0.2430 & 0.2278 & 0.0604 & [-1.72, +2.58] \\
- &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}})$)} & 80.52 & 76.27 & 88.06 & 82.73 & 0.2703 & 0.2277 & 0.0597 & [+2.36, +3.82] \\
- &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}})$)} & 80.51 & 76.29 & 88.01 & 82.69 & 0.2701 & 0.2278 & 0.0604 & [+2.38, +3.82] \\
- &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}}+\text{EMA})$)} & 80.56 & 76.31 & 88.09 & 82.79 & 0.2697 & 0.2279 & 0.0600 & [+2.45, +3.90] \\
+R-LiViT & Stochastic & Sensor-Only ($p_D=0.75$) & 50.69 & 53.63 & 51.61 & 46.73 & 0.4992 & -- (N/A) & -- (N/A) & [-9.20, -5.28] \\
+ &  & Sensor-Only (Tuned $p_D^*$) & 51.49 & 54.87 & 52.11 & 47.63 & 0.4885 & -- (N/A) & -- (N/A) & [-8.40, -4.45] \\
+ &  & Fixed-$q$ Untuned ($\bar{q}_{\text{train}}$) & 56.78 & 61.62 & 55.13 & 52.97 & 0.4383 & 0.2263 & 0.0068 & [-1.55, -0.67] \\
+ &  & Fixed-$q$ Validation-Tuned ($q^*$) & 57.96 & 61.41 & 57.53 & 54.46 & 0.4477 & 0.2371 & 0.1041 & -- (Ref) \\
+ &  & Delivery-History EMA Baseline ($\alpha=0.75$) & 57.38 & 60.70 & 57.07 & 53.82 & 0.4541 & 0.1756 & 0.0692 & [-1.22, -0.01] \\
+ &  & Two-Sensor Ungated Baseline ($p_D^*, p_{D,C}^*$) & 59.60 & 63.80 & 58.60 & 56.31 & 0.4022 & 0.2372 & 0.1028 & [+0.77, +2.47] \\
+ &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}})$)} & 60.53 & 64.26 & 59.88 & 57.37 & 0.4126 & 0.0972 & 0.0556 & [+2.05, +3.32] \\
+ &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}})$)} & 61.18 & 64.32 & 61.08 & 58.22 & 0.4119 & 0.0879 & 0.0110 & [+2.34, +4.13] \\
+ &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}}+\text{EMA})$)} & 60.58 & 64.14 & 60.10 & 57.42 & 0.4144 & 0.0975 & 0.0496 & [+2.17, +3.22] \\
+ &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}}+\text{EMA})$)} & 61.03 & 64.23 & 60.88 & 58.03 & 0.4137 & 0.0878 & 0.0101 & [+2.27, +3.90] \\
+ &  & \textbf{Proposed Config D (Adaptive $p_D(\phi)$ + Logistic $q(\phi)$)} & 83.11 & 75.28 & 94.91 & 89.23 & 0.2478 & 0.0969 & 0.0711 & [+22.59, +27.17] \\
+ &  & \textbf{Proposed Config D (Adaptive $p_D(\phi)$ + MLP $q(\phi)$)} & 83.15 & 75.45 & 94.82 & 89.33 & 0.2418 & 0.0877 & 0.0354 & [+22.66, +27.21] \\
 \midrule
- & External-Physics & Sensor-Only ($p_D=0.75$) & 72.17 & 71.43 & 76.32 & 71.58 & 0.3060 & -- (N/A) & -- (N/A) & [-14.34, -7.02] \\
- &  & Sensor-Only (Tuned $p_D^*$) & 76.38 & 73.00 & 83.34 & 77.69 & 0.2986 & -- (N/A) & -- (N/A) & [-9.56, -2.95] \\
- &  & Fixed-$q$ Untuned ($\bar{q}_{\text{train}}$) & 77.45 & 76.44 & 81.45 & 77.62 & 0.2587 & 0.2330 & 0.2086 & [-5.47, -2.85] \\
- &  & Fixed-$q$ Validation-Tuned ($q^*$) & 81.71 & 77.09 & 89.49 & 84.15 & 0.2636 & 0.2392 & 0.2124 & -- (Ref) \\
- &  & Delivery-History EMA Baseline ($\alpha=0.75$) & 82.36 & 77.39 & 90.54 & 85.00 & 0.2606 & 0.1921 & 0.1109 & [-0.99, +2.09] \\
- &  & Two-Sensor Adaptive-$p_{D,C}(\phi)$ (Ungated) & 78.75 & 77.74 & 82.69 & 79.28 & 0.2362 & 0.2320 & 0.2069 & [-4.70, -0.99] \\
- &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}})$)} & 81.45 & 77.03 & 89.00 & 83.72 & 0.2638 & 0.2307 & 0.2044 & [-0.67, -0.04] \\
- &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}})$)} & 81.32 & 77.03 & 88.74 & 83.49 & 0.2637 & 0.2320 & 0.2069 & [-0.73, -0.13] \\
- &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}}+\text{EMA})$)} & 82.64 & 77.90 & 90.58 & 85.38 & 0.2528 & 0.1895 & 0.1094 & [-0.43, +2.47] \\
+ & External-Physics & Sensor-Only ($p_D=0.75$) & 50.69 & 53.63 & 51.61 & 46.73 & 0.4992 & -- (N/A) & -- (N/A) & [-4.63, -1.88] \\
+ &  & Sensor-Only (Tuned $p_D^*$) & 51.49 & 54.87 & 52.11 & 47.63 & 0.4885 & -- (N/A) & -- (N/A) & [-3.82, -1.10] \\
+ &  & Fixed-$q$ Untuned ($\bar{q}_{\text{train}}$) & 53.93 & 58.93 & 52.18 & 49.68 & 0.4586 & 0.2500 & 0.0031 & [-0.17, +0.31] \\
+ &  & Fixed-$q$ Validation-Tuned ($q^*$) & 53.86 & 58.31 & 52.59 & 49.65 & 0.4718 & 0.2523 & 0.0481 & -- (Ref) \\
+ &  & Delivery-History EMA Baseline ($\alpha=0.75$) & 54.40 & 58.65 & 53.32 & 50.43 & 0.4671 & 0.2053 & 0.0835 & [+0.14, +0.99] \\
+ &  & Two-Sensor Ungated Baseline ($p_D^*, p_{D,C}^*$) & 54.72 & 60.83 & 52.05 & 50.53 & 0.4274 & 0.2524 & 0.0495 & [+0.25, +1.62] \\
+ &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}})$)} & 57.14 & 61.34 & 56.21 & 53.57 & 0.4370 & 0.1963 & 0.0123 & [+2.43, +4.02] \\
+ &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}})$)} & 56.92 & 61.32 & 55.83 & 53.18 & 0.4375 & 0.1966 & 0.0178 & [+2.26, +3.78] \\
+ &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}}+\text{EMA})$)} & 57.02 & 61.18 & 56.15 & 53.45 & 0.4382 & 0.1658 & 0.0375 & [+2.41, +3.89] \\
+ &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}}+\text{EMA})$)} & 57.12 & 61.38 & 56.17 & 53.55 & 0.4360 & 0.1649 & 0.0191 & [+2.51, +3.97] \\
+ &  & \textbf{Proposed Config D (Adaptive $p_D(\phi)$ + Logistic $q(\phi)$)} & 80.70 & 73.76 & 91.68 & 86.39 & 0.2612 & 0.1969 & 0.0131 & [+24.87, +28.45] \\
+ &  & \textbf{Proposed Config D (Adaptive $p_D(\phi)$ + MLP $q(\phi)$)} & 80.70 & 73.81 & 91.59 & 86.37 & 0.2600 & 0.1972 & 0.0208 & [+24.78, +28.51] \\
 \midrule
-DAIR-V2X-Seq & Stochastic & Sensor-Only ($p_D=0.75$) & 72.74 & 71.58 & 77.25 & 72.38 & 0.3108 & -- (N/A) & -- (N/A) & [-5.19, -2.66] \\
- &  & Sensor-Only (Tuned $p_D^*$) & 76.30 & 73.21 & 82.87 & 77.79 & 0.3023 & -- (N/A) & -- (N/A) & [-1.64, +0.28] \\
- &  & Fixed-$q$ Untuned ($\bar{q}_{\text{train}}$) & 75.62 & 73.74 & 80.50 & 75.81 & 0.2993 & 0.2495 & 0.0361 & [-1.87, -0.19] \\
- &  & Fixed-$q$ Validation-Tuned ($q^*$) & 76.71 & 73.67 & 82.82 & 77.59 & 0.3105 & 0.2547 & 0.0764 & -- (Ref) \\
- &  & Delivery-History EMA Baseline ($\alpha=0.75$) & 79.27 & 75.55 & 86.12 & 81.15 & 0.2871 & 0.2655 & 0.1346 & [+0.83, +3.32] \\
- &  & Two-Sensor Adaptive-$p_{D,C}(\phi)$ (Ungated) & 77.81 & 76.68 & 81.92 & 78.56 & 0.2549 & 0.2294 & 0.0572 & [-0.90, +2.96] \\
- &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}})$)} & 80.10 & 76.18 & 87.19 & 82.36 & 0.2779 & 0.2292 & 0.0573 & [+1.46, +4.30] \\
- &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}})$)} & 80.07 & 76.17 & 87.15 & 82.32 & 0.2781 & 0.2294 & 0.0572 & [+1.45, +4.25] \\
- &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}}+\text{EMA})$)} & 80.19 & 76.24 & 87.31 & 82.47 & 0.2771 & 0.2294 & 0.0579 & [+1.49, +4.43] \\
+DAIR-V2X-Seq & Stochastic & Sensor-Only ($p_D=0.75$) & 50.36 & 54.19 & 50.29 & 46.03 & 0.5000 & -- (N/A) & -- (N/A) & [-9.87, -4.82] \\
+ &  & Sensor-Only (Tuned $p_D^*$) & 50.90 & 55.36 & 50.39 & 46.54 & 0.4928 & -- (N/A) & -- (N/A) & [-9.36, -3.91] \\
+ &  & Fixed-$q$ Untuned ($\bar{q}_{\text{train}}$) & 57.23 & 61.99 & 55.70 & 53.29 & 0.4398 & 0.2363 & 0.0336 & [-1.78, -0.94] \\
+ &  & Fixed-$q$ Validation-Tuned ($q^*$) & 58.57 & 61.84 & 58.30 & 54.87 & 0.4492 & 0.2403 & 0.0716 & -- (Ref) \\
+ &  & Delivery-History EMA Baseline ($\alpha=0.75$) & 58.26 & 61.38 & 58.16 & 54.73 & 0.4520 & 0.1710 & 0.0687 & [-0.75, +0.15] \\
+ &  & Two-Sensor Ungated Baseline ($p_D^*, p_{D,C}^*$) & 59.85 & 64.31 & 58.41 & 56.36 & 0.4013 & 0.2405 & 0.0702 & [-0.09, +2.06] \\
+ &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}})$)} & 61.54 & 64.81 & 61.36 & 58.65 & 0.4129 & 0.1004 & 0.0561 & [+1.97, +3.45] \\
+ &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}})$)} & 61.96 & 64.90 & 62.09 & 59.23 & 0.4123 & 0.0895 & 0.0107 & [+2.26, +3.93] \\
+ &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}}+\text{EMA})$)} & 61.64 & 64.73 & 61.62 & 58.75 & 0.4142 & 0.1000 & 0.0489 & [+1.94, +3.60] \\
+ &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}}+\text{EMA})$)} & 61.95 & 64.87 & 62.11 & 59.24 & 0.4131 & 0.0903 & 0.0156 & [+1.98, +3.94] \\
+ &  & \textbf{Proposed Config D (Adaptive $p_D(\phi)$ + Logistic $q(\phi)$)} & 83.21 & 75.73 & 94.56 & 89.37 & 0.2555 & 0.0985 & 0.0698 & [+22.61, +27.47] \\
+ &  & \textbf{Proposed Config D (Adaptive $p_D(\phi)$ + MLP $q(\phi)$)} & 83.60 & 76.05 & 95.01 & 89.87 & 0.2481 & 0.0879 & 0.0354 & [+22.99, +27.76] \\
 \midrule
- & External-Physics & Sensor-Only ($p_D=0.75$) & 72.74 & 71.58 & 77.25 & 72.38 & 0.3108 & -- (N/A) & -- (N/A) & [-9.47, -4.00] \\
- &  & Sensor-Only (Tuned $p_D^*$) & 76.30 & 73.21 & 82.87 & 77.79 & 0.3023 & -- (N/A) & -- (N/A) & [-5.75, -1.51] \\
- &  & Fixed-$q$ Untuned ($\bar{q}_{\text{train}}$) & 75.89 & 75.29 & 79.57 & 75.85 & 0.2743 & 0.2588 & 0.1611 & [-5.69, -3.60] \\
- &  & Fixed-$q$ Validation-Tuned ($q^*$) & 80.39 & 76.25 & 87.77 & 82.74 & 0.2758 & 0.2479 & 0.1327 & -- (Ref) \\
- &  & Delivery-History EMA Baseline ($\alpha=0.75$) & 81.47 & 77.00 & 89.20 & 84.30 & 0.2671 & 0.2312 & 0.1196 & [+0.48, +1.71] \\
- &  & Two-Sensor Adaptive-$p_{D,C}(\phi)$ (Ungated) & 77.64 & 76.59 & 81.70 & 78.36 & 0.2534 & 0.2533 & 0.1572 & [-4.12, -0.69] \\
- &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}})$)} & 79.53 & 76.05 & 86.19 & 81.44 & 0.2780 & 0.2561 & 0.1613 & [-1.24, -0.35] \\
- &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}})$)} & 79.61 & 76.07 & 86.34 & 81.57 & 0.2774 & 0.2533 & 0.1572 & [-1.12, -0.31] \\
- &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}}+\text{EMA})$)} & 81.25 & 77.13 & 88.63 & 83.90 & 0.2642 & 0.2251 & 0.0997 & [+0.35, +1.31] \\
+ & External-Physics & Sensor-Only ($p_D=0.75$) & 50.36 & 54.19 & 50.29 & 46.03 & 0.5000 & -- (N/A) & -- (N/A) & [-3.31, -0.42] \\
+ &  & Sensor-Only (Tuned $p_D^*$) & 50.90 & 55.36 & 50.39 & 46.54 & 0.4928 & -- (N/A) & -- (N/A) & [-2.57, +0.37] \\
+ &  & Fixed-$q$ Untuned ($\bar{q}_{\text{train}}$) & 51.70 & 57.02 & 49.67 & 46.92 & 0.4833 & 0.2495 & 0.0030 & [-0.21, +0.27] \\
+ &  & Fixed-$q$ Validation-Tuned ($q^*$) & 51.55 & 56.41 & 49.89 & 46.79 & 0.4977 & 0.2547 & 0.0722 & -- (Ref) \\
+ &  & Delivery-History EMA Baseline ($\alpha=0.75$) & 52.11 & 56.86 & 50.57 & 47.53 & 0.4928 & 0.2078 & 0.0956 & [-0.11, +1.28] \\
+ &  & Two-Sensor Ungated Baseline ($p_D^*, p_{D,C}^*$) & 52.28 & 58.65 & 49.42 & 47.79 & 0.4481 & 0.2546 & 0.0714 & [-0.09, +1.18] \\
+ &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}})$)} & 54.00 & 59.47 & 51.93 & 49.62 & 0.4658 & 0.1833 & 0.0385 & [+1.97, +2.88] \\
+ &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}})$)} & 53.82 & 59.40 & 51.67 & 49.40 & 0.4664 & 0.1824 & 0.0361 & [+1.60, +2.73] \\
+ &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}}+\text{EMA})$)} & 53.72 & 59.00 & 51.75 & 49.32 & 0.4702 & 0.1583 & 0.0448 & [+1.74, +2.89] \\
+ &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}}+\text{EMA})$)} & 53.96 & 59.30 & 51.96 & 49.59 & 0.4670 & 0.1560 & 0.0352 & [+1.87, +3.02] \\
+ &  & \textbf{Proposed Config D (Adaptive $p_D(\phi)$ + Logistic $q(\phi)$)} & 80.48 & 73.40 & 91.61 & 86.13 & 0.2787 & 0.1833 & 0.0400 & [+26.82, +30.51] \\
+ &  & \textbf{Proposed Config D (Adaptive $p_D(\phi)$ + MLP $q(\phi)$)} & 80.35 & 73.36 & 91.38 & 85.94 & 0.2788 & 0.1821 & 0.0338 & [+26.71, +30.46] \\
 \midrule
-V2X-Sim & Stochastic & Sensor-Only ($p_D=0.75$) & 71.36 & 69.88 & 76.29 & 70.70 & 0.3304 & -- (N/A) & -- (N/A) & [-5.25, -3.42] \\
- &  & Sensor-Only (Tuned $p_D^*$) & 75.14 & 71.55 & 82.42 & 76.36 & 0.3192 & -- (N/A) & -- (N/A) & [-1.26, +0.22] \\
- &  & Fixed-$q$ Untuned ($\bar{q}_{\text{train}}$) & 75.18 & 72.65 & 80.82 & 75.17 & 0.3145 & 0.2475 & 0.0497 & [-0.91, -0.12] \\
- &  & Fixed-$q$ Validation-Tuned ($q^*$) & 75.69 & 72.28 & 82.27 & 76.07 & 0.3252 & 0.2576 & 0.1051 & -- (Ref) \\
- &  & Delivery-History EMA Baseline ($\alpha=0.75$) & 78.90 & 74.46 & 86.65 & 80.75 & 0.2986 & 0.2617 & 0.1314 & [+2.37, +4.07] \\
- &  & Two-Sensor Adaptive-$p_{D,C}(\phi)$ (Ungated) & 78.23 & 76.40 & 83.22 & 79.26 & 0.2607 & 0.2256 & 0.0572 & [+0.71, +4.19] \\
- &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}})$)} & 79.22 & 75.15 & 86.60 & 81.15 & 0.2876 & 0.2252 & 0.0548 & [+2.68, +4.46] \\
- &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}})$)} & 79.21 & 75.15 & 86.59 & 81.14 & 0.2876 & 0.2256 & 0.0572 & [+2.68, +4.46] \\
- &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}}+\text{EMA})$)} & 79.34 & 75.17 & 86.84 & 81.37 & 0.2873 & 0.2256 & 0.0562 & [+2.76, +4.58] \\
+V2X-Sim & Stochastic & Sensor-Only ($p_D=0.75$) & 49.67 & 54.73 & 48.48 & 44.95 & 0.4944 & -- (N/A) & -- (N/A) & [-8.09, -4.18] \\
+ &  & Sensor-Only (Tuned $p_D^*$) & 50.50 & 55.93 & 49.15 & 45.80 & 0.4888 & -- (N/A) & -- (N/A) & [-7.49, -3.16] \\
+ &  & Fixed-$q$ Untuned ($\bar{q}_{\text{train}}$) & 54.57 & 60.45 & 52.00 & 49.88 & 0.4555 & 0.2389 & 0.0024 & [-1.62, -0.69] \\
+ &  & Fixed-$q$ Validation-Tuned ($q^*$) & 55.71 & 60.29 & 54.26 & 51.60 & 0.4668 & 0.2419 & 0.0555 & -- (Ref) \\
+ &  & Delivery-History EMA Baseline ($\alpha=0.75$) & 55.55 & 60.08 & 54.14 & 51.35 & 0.4663 & 0.1741 & 0.0748 & [-0.83, +0.49] \\
+ &  & Two-Sensor Ungated Baseline ($p_D^*, p_{D,C}^*$) & 56.53 & 62.75 & 53.68 & 52.37 & 0.4172 & 0.2421 & 0.0536 & [+0.24, +1.45] \\
+ &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}})$)} & 59.07 & 63.72 & 57.69 & 55.84 & 0.4266 & 0.0966 & 0.0524 & [+2.54, +4.25] \\
+ &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}})$)} & 59.44 & 63.80 & 58.27 & 56.23 & 0.4262 & 0.0868 & 0.0081 & [+2.64, +4.93] \\
+ &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}}+\text{EMA})$)} & 59.21 & 63.59 & 58.05 & 56.01 & 0.4284 & 0.0965 & 0.0492 & [+2.62, +4.44] \\
+ &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}}+\text{EMA})$)} & 59.49 & 63.85 & 58.33 & 56.35 & 0.4258 & 0.0873 & 0.0130 & [+2.73, +4.89] \\
+ &  & \textbf{Proposed Config D (Adaptive $p_D(\phi)$ + Logistic $q(\phi)$)} & 83.05 & 75.47 & 94.71 & 89.65 & 0.2444 & 0.0968 & 0.0699 & [+24.14, +30.21] \\
+ &  & \textbf{Proposed Config D (Adaptive $p_D(\phi)$ + MLP $q(\phi)$)} & 82.97 & 75.59 & 94.38 & 89.57 & 0.2396 & 0.0871 & 0.0327 & [+24.09, +30.17] \\
 \midrule
- & External-Physics & Sensor-Only ($p_D=0.75$) & 71.36 & 69.88 & 76.29 & 70.70 & 0.3304 & -- (N/A) & -- (N/A) & [-12.62, -6.64] \\
- &  & Sensor-Only (Tuned $p_D^*$) & 75.14 & 71.55 & 82.42 & 76.36 & 0.3192 & -- (N/A) & -- (N/A) & [-8.84, -2.97] \\
- &  & Fixed-$q$ Untuned ($\bar{q}_{\text{train}}$) & 78.13 & 75.91 & 83.33 & 79.12 & 0.2730 & 0.2213 & 0.1912 & [-4.30, -1.75] \\
- &  & Fixed-$q$ Validation-Tuned ($q^*$) & 81.11 & 76.21 & 89.18 & 83.88 & 0.2777 & 0.2354 & 0.2163 & -- (Ref) \\
- &  & Delivery-History EMA Baseline ($\alpha=0.75$) & 81.26 & 76.28 & 89.44 & 84.10 & 0.2786 & 0.1855 & 0.1117 & [-0.81, +1.36] \\
- &  & Two-Sensor Adaptive-$p_{D,C}(\phi)$ (Ungated) & 79.89 & 77.45 & 85.29 & 81.63 & 0.2495 & 0.2211 & 0.1995 & [-2.60, -0.11] \\
- &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}})$)} & 80.85 & 76.16 & 88.69 & 83.39 & 0.2781 & 0.2225 & 0.1989 & [-0.46, -0.09] \\
- &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}})$)} & 80.71 & 76.21 & 88.34 & 83.20 & 0.2772 & 0.2211 & 0.1995 & [-0.74, -0.09] \\
- &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}}+\text{EMA})$)} & 81.51 & 76.68 & 89.50 & 84.35 & 0.2725 & 0.1831 & 0.1142 & [-0.32, +1.40] \\
+ & External-Physics & Sensor-Only ($p_D=0.75$) & 49.67 & 54.73 & 48.48 & 44.95 & 0.4944 & -- (N/A) & -- (N/A) & [-3.37, -1.12] \\
+ &  & Sensor-Only (Tuned $p_D^*$) & 50.50 & 55.93 & 49.15 & 45.80 & 0.4888 & -- (N/A) & -- (N/A) & [-2.50, -0.20] \\
+ &  & Fixed-$q$ Untuned ($\bar{q}_{\text{train}}$) & 52.07 & 58.44 & 49.08 & 47.11 & 0.4697 & 0.2475 & 0.0066 & [+0.11, +0.40] \\
+ &  & Fixed-$q$ Validation-Tuned ($q^*$) & 51.81 & 57.68 & 49.22 & 46.86 & 0.4871 & 0.2576 & 0.1007 & -- (Ref) \\
+ &  & Delivery-History EMA Baseline ($\alpha=0.75$) & 52.91 & 58.58 & 50.56 & 48.27 & 0.4765 & 0.2016 & 0.0921 & [+0.49, +1.77] \\
+ &  & Two-Sensor Ungated Baseline ($p_D^*, p_{D,C}^*$) & 53.07 & 60.00 & 49.70 & 48.11 & 0.4384 & 0.2579 & 0.1036 & [+0.82, +1.72] \\
+ &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}})$)} & 55.54 & 61.27 & 53.27 & 51.27 & 0.4486 & 0.2039 & 0.0261 & [+2.82, +4.75] \\
+ &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}})$)} & 55.70 & 61.33 & 53.50 & 51.45 & 0.4479 & 0.2027 & 0.0260 & [+2.97, +4.90] \\
+ &  & \textbf{Proposed Config C (Logistic $q(\phi_{\text{radio}}+\text{EMA})$)} & 55.31 & 61.08 & 52.99 & 51.09 & 0.4490 & 0.1654 & 0.0424 & [+2.64, +4.41] \\
+ &  & \textbf{Proposed Config C (MLP $q(\phi_{\text{radio}}+\text{EMA})$)} & 55.63 & 61.28 & 53.39 & 51.47 & 0.4470 & 0.1648 & 0.0336 & [+2.98, +4.63] \\
+ &  & \textbf{Proposed Config D (Adaptive $p_D(\phi)$ + Logistic $q(\phi)$)} & 81.80 & 74.68 & 92.98 & 87.95 & 0.2572 & 0.2027 & 0.0263 & [+27.48, +32.41] \\
+ &  & \textbf{Proposed Config D (Adaptive $p_D(\phi)$ + MLP $q(\phi)$)} & 81.85 & 74.73 & 93.04 & 88.01 & 0.2553 & 0.2011 & 0.0219 & [+27.47, +32.45] \\
 \bottomrule
 \end{tabular}
 \end{table*}

@@ -40,7 +40,7 @@ from context_estimators import (
     extract_phi_feature_ablation,
     extract_pre_outcome_gating_features,
 )
-from lmb_tracker import LMBTracker, TrackerConfig
+from lmb_tracker import LMBTracker, TrackerConfig, TrackComponent
 from evaluator import compute_hota_and_clear, compute_ospa_frame, compute_calibration_metrics
 from run_experiments import train_estimators_on_split, run_tracker_on_sequence
 

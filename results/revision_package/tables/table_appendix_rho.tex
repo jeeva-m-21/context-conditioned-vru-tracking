@@ -1,0 +1,15 @@
+\begin{table}[!t]
+\caption{Supplementary Analysis: Prior Marginal Calibration of Robust Likelihood Weight $\rho(\phi)$ (Config E).}
+\label{tab:appendix_rho}
+\centering
+\small
+\begin{tabular}{lcccc}
+\toprule
+Estimator & Prior Marginal Brier $\downarrow$ & Prior Marginal ECE $\downarrow$ & Log-Loss $\downarrow$ \\
+\midrule
+Fixed $\bar{\rho} = 0.90$ & 0.0824 & 0.0712 & 0.3125 \\
+Logistic $\rho(\phi_{\text{kinematic}})$ & 0.0215 & 0.0184 & 0.1240 \\
+MLP $\rho(\phi_{\text{kinematic}})$ & \textbf{0.0142} & \textbf{0.0118} & \textbf{0.0895} \\
+\bottomrule
+\end{tabular}
+\end{table}

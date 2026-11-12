@@ -1,0 +1,36 @@
+\begin{table*}[!t]
+\caption{Non-Oracle Sender Detection ($p_{D,\text{sender}} < 1$) and Distance-Scaled Covariance $\Sigma_{C,k}$ (Table VI). Replaces Section IV-G with empirical evaluation across realistic sender perception failures.}
+\label{tab:non_oracle_sender}
+\centering
+\small
+\begin{tabular}{llcccc}
+\toprule
+Sender Detection $p_{D,\text{sender}}$ & Tracker Variant & HOTA $\uparrow$ & IDF1 $\uparrow$ & Brier $\downarrow$ & ECE $\downarrow$ \\
+\midrule
+1.00 (Oracle) & Fixed-$q$ Baseline & 56.97 & 54.11 & 0.2374 & 0.1087 \\
+ & Delivery-History EMA & 56.40 & 53.49 & 0.1743 & 0.0898 \\
+ & Config D (Logistic) & 81.18 & 88.06 & 0.0969 & 0.0711 \\
+ & Config D (MLP) & 81.17 & 88.08 & 0.0877 & 0.0354 \\
+\midrule
+0.90 & Fixed-$q$ Baseline & 56.70 & 53.87 & 0.2444 & 0.0631 \\
+ & Delivery-History EMA & 56.23 & 53.27 & 0.2111 & 0.1047 \\
+ & Config D (Logistic) & 80.12 & 86.86 & 0.1414 & 0.0909 \\
+ & Config D (MLP) & 79.82 & 86.49 & 0.1367 & 0.0821 \\
+\midrule
+0.80 & Fixed-$q$ Baseline & 55.90 & 53.03 & 0.2506 & 0.0533 \\
+ & Delivery-History EMA & 56.14 & 53.33 & 0.2354 & 0.1151 \\
+ & Config D (Logistic) & 78.12 & 84.01 & 0.1826 & 0.1339 \\
+ & Config D (MLP) & 77.52 & 83.26 & 0.1826 & 0.1390 \\
+\midrule
+0.70 & Fixed-$q$ Baseline & 55.21 & 52.29 & 0.2570 & 0.0976 \\
+ & Delivery-History EMA & 55.68 & 52.83 & 0.2481 & 0.1322 \\
+ & Config D (Logistic) & 75.92 & 80.98 & 0.2244 & 0.1916 \\
+ & Config D (MLP) & 74.81 & 79.52 & 0.2288 & 0.1984 \\
+\midrule
+State-Dependent & Fixed-$q$ Baseline & 54.07 & 50.89 & 0.2485 & 0.0511 \\
+ & Delivery-History EMA & 54.19 & 50.99 & 0.2230 & 0.1131 \\
+ & Config D (Logistic) & 77.29 & 83.14 & 0.1595 & 0.1135 \\
+ & Config D (MLP) & 76.22 & 81.49 & 0.1594 & 0.1156 \\
+\bottomrule
+\end{tabular}
+\end{table*}

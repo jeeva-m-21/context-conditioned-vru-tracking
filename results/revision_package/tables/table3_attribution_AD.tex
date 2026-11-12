@@ -7,26 +7,26 @@
 \toprule
 Dataset & Configuration & HOTA $\uparrow$ & DetA $\uparrow$ & AssA $\uparrow$ & IDF1 $\uparrow$ & OSPA $\bar{d}_2^{(10)}$ $\downarrow$ & Brier $\downarrow$ \\
 \midrule
-R-LiViT & Config A (Fixed $p_D^*$, Fixed $q^*$) & 77.38 & 73.95 & 83.99 & 78.18 & 0.3006 & 0.2539 \\
- & Config B (Adaptive $p_D(\phi)$, Fixed $q^*$) & 81.93 & 76.82 & 90.41 & 84.95 & 0.2641 & 0.2539 \\
- & Config C (Fixed $p_D^*$, Logistic $q(\phi)$) & 80.52 & 76.27 & 88.06 & 82.73 & 0.2703 & 0.2277 \\
- & Config C (Fixed $p_D^*$, MLP $q(\phi)$) & 80.51 & 76.29 & 88.01 & 82.69 & 0.2701 & 0.2278 \\
- & Config D (Adaptive $p_D(\phi)$, Logistic $q(\phi)$) & 83.78 & 77.96 & 93.10 & 87.81 & 0.2477 & 0.2277 \\
- & Config D (Adaptive $p_D(\phi)$, MLP $q(\phi)$) & 83.81 & 77.98 & 93.13 & 87.84 & 0.2476 & 0.2278 \\
+R-LiViT & Config A (Fixed $p_D^*$, Fixed $q^*$) & 57.96 & 61.41 & 57.53 & 54.46 & 0.4477 & 0.2374 \\
+ & Config B (Adaptive $p_D(\phi)$, Fixed $q^*$) & 68.93 & 67.58 & 73.28 & 68.55 & 0.3758 & 0.2374 \\
+ & Config C (Fixed $p_D^*$, Logistic $q(\phi)$) & 60.53 & 64.26 & 59.88 & 57.37 & 0.4126 & 0.0969 \\
+ & Config C (Fixed $p_D^*$, MLP $q(\phi)$) & 61.18 & 64.32 & 61.08 & 58.22 & 0.4119 & 0.0877 \\
+ & Config D (Adaptive $p_D(\phi)$, Logistic $q(\phi)$) & 83.11 & 75.28 & 94.91 & 89.23 & 0.2478 & 0.0969 \\
+ & Config D (Adaptive $p_D(\phi)$, MLP $q(\phi)$) & 83.15 & 75.45 & 94.82 & 89.33 & 0.2418 & 0.0877 \\
 \midrule
-DAIR-V2X-Seq & Config A (Fixed $p_D^*$, Fixed $q^*$) & 76.71 & 73.67 & 82.82 & 77.59 & 0.3105 & 0.2547 \\
- & Config B (Adaptive $p_D(\phi)$, Fixed $q^*$) & 81.04 & 76.54 & 88.82 & 83.83 & 0.2736 & 0.2547 \\
- & Config C (Fixed $p_D^*$, Logistic $q(\phi)$) & 80.10 & 76.18 & 87.19 & 82.36 & 0.2779 & 0.2292 \\
- & Config C (Fixed $p_D^*$, MLP $q(\phi)$) & 80.07 & 76.17 & 87.15 & 82.32 & 0.2781 & 0.2294 \\
- & Config D (Adaptive $p_D(\phi)$, Logistic $q(\phi)$) & 83.56 & 77.97 & 92.60 & 87.76 & 0.2516 & 0.2292 \\
- & Config D (Adaptive $p_D(\phi)$, MLP $q(\phi)$) & 83.51 & 77.95 & 92.50 & 87.68 & 0.2519 & 0.2294 \\
+DAIR-V2X-Seq & Config A (Fixed $p_D^*$, Fixed $q^*$) & 58.57 & 61.84 & 58.30 & 54.87 & 0.4492 & 0.2401 \\
+ & Config B (Adaptive $p_D(\phi)$, Fixed $q^*$) & 68.63 & 67.57 & 72.69 & 68.30 & 0.3851 & 0.2401 \\
+ & Config C (Fixed $p_D^*$, Logistic $q(\phi)$) & 61.54 & 64.81 & 61.36 & 58.65 & 0.4129 & 0.0985 \\
+ & Config C (Fixed $p_D^*$, MLP $q(\phi)$) & 61.96 & 64.90 & 62.09 & 59.23 & 0.4123 & 0.0879 \\
+ & Config D (Adaptive $p_D(\phi)$, Logistic $q(\phi)$) & 83.21 & 75.73 & 94.56 & 89.37 & 0.2555 & 0.0985 \\
+ & Config D (Adaptive $p_D(\phi)$, MLP $q(\phi)$) & 83.60 & 76.05 & 95.01 & 89.87 & 0.2481 & 0.0879 \\
 \midrule
-V2X-Sim & Config A (Fixed $p_D^*$, Fixed $q^*$) & 75.69 & 72.28 & 82.27 & 76.07 & 0.3252 & 0.2576 \\
- & Config B (Adaptive $p_D(\phi)$, Fixed $q^*$) & 80.59 & 75.68 & 88.92 & 83.39 & 0.2828 & 0.2576 \\
- & Config C (Fixed $p_D^*$, Logistic $q(\phi)$) & 79.22 & 75.15 & 86.60 & 81.15 & 0.2876 & 0.2252 \\
- & Config C (Fixed $p_D^*$, MLP $q(\phi)$) & 79.21 & 75.15 & 86.59 & 81.14 & 0.2876 & 0.2256 \\
- & Config D (Adaptive $p_D(\phi)$, Logistic $q(\phi)$) & 83.90 & 77.48 & 93.92 & 88.64 & 0.2571 & 0.2252 \\
- & Config D (Adaptive $p_D(\phi)$, MLP $q(\phi)$) & 83.85 & 77.48 & 93.82 & 88.55 & 0.2572 & 0.2256 \\
+V2X-Sim & Config A (Fixed $p_D^*$, Fixed $q^*$) & 55.71 & 60.29 & 54.26 & 51.60 & 0.4668 & 0.2434 \\
+ & Config B (Adaptive $p_D(\phi)$, Fixed $q^*$) & 66.76 & 66.71 & 69.88 & 65.61 & 0.3940 & 0.2434 \\
+ & Config C (Fixed $p_D^*$, Logistic $q(\phi)$) & 59.07 & 63.72 & 57.69 & 55.84 & 0.4266 & 0.0968 \\
+ & Config C (Fixed $p_D^*$, MLP $q(\phi)$) & 59.44 & 63.80 & 58.27 & 56.23 & 0.4262 & 0.0871 \\
+ & Config D (Adaptive $p_D(\phi)$, Logistic $q(\phi)$) & 83.05 & 75.47 & 94.71 & 89.65 & 0.2444 & 0.0968 \\
+ & Config D (Adaptive $p_D(\phi)$, MLP $q(\phi)$) & 82.97 & 75.59 & 94.38 & 89.57 & 0.2396 & 0.0871 \\
 \bottomrule
 \end{tabular}
 \end{table*}

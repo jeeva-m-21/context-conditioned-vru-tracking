@@ -222,12 +222,16 @@ class LMBTracker:
                 q = trk.ema_q
                 is_eligible = (trk.track_id in context_q_values)
             elif "two_sensor_ungated" in self.config.mode:
-                # Ungated two-sensor: q acts directly as second detection probability without opportunity gate
-                q = context_q_values.get(trk.track_id, self.config.q_fixed)
+                # Ungated two-sensor baseline:
+                # Sensor 2 is treated as an ordinary physical sensor without scheduling awareness.
+                # It does not condition on radio context phi and is not gated by G_k^ell.
+                # Therefore, q is constant (q_fixed), and is_eligible is True unconditionally.
+                # Every frame without a cooperative measurement incurs the (1 - q) missed detection penalty.
+                q = self.config.q_fixed
                 is_eligible = True
             else:  # Proposed Config C and Config D (Logistic / MLP)
                 q = context_q_values.get(trk.track_id, 0.0)
-                is_eligible = (trk.track_id in context_q_values)
+                is_eligible = (trk.track_id in context_q_values) or has_C
 
             # Soft Eligibility Gating gamma_k^ell
             gamma = 1.0

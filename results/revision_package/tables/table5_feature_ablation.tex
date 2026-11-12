@@ -1,0 +1,47 @@
+\begin{table*}[!t]
+\caption{Systematic Feature and Model Capacity Ablation on R-LiViT (Table V). Evaluates Linear Logistic vs. MLP estimators across context subsets. Demonstrates that pruning non-RF features (time-of-day, VRU class) preserves accuracy while reducing model dimension.}
+\label{tab:feature_ablation}
+\centering
+\small
+\begin{tabular}{llcccc}
+\toprule
+Ablation Condition & Model & Brier Score $\downarrow$ & ECE (10-bin) $\downarrow$ & HOTA $\uparrow$ & IDF1 $\uparrow$ \\
+\midrule
+(a) Fixed $\bar{q}$ Baseline & Logistic & 0.2275 & 0.0584 & 56.48 & 52.63 \\
+ & MLP & 0.2275 & 0.0584 & 56.48 & 52.63 \\
+\midrule
+(b) CBR Only ($c_k$) & Logistic & 0.2274 & 0.0589 & 56.95 & 53.23 \\
+ & MLP & 0.2275 & 0.0608 & 56.96 & 53.22 \\
+\midrule
+(c) Distance Only ($\tilde{d}_k^\ell$) & Logistic & 0.1970 & 0.0744 & 56.77 & 52.95 \\
+ & MLP & 0.1933 & 0.0585 & 56.66 & 52.79 \\
+\midrule
+(d) Occlusion Only ($\mathbf{o}_k^\ell$) & Logistic & 0.1494 & 0.0787 & 60.04 & 56.74 \\
+ & MLP & 0.1492 & 0.0783 & 60.05 & 56.77 \\
+\midrule
+(e) Distance + Occlusion & Logistic & 0.0979 & 0.0698 & 60.47 & 57.32 \\
+ & MLP & 0.0894 & 0.0352 & 61.12 & 58.17 \\
+\midrule
+(f) Distance + CBR & Logistic & 0.1968 & 0.0825 & 56.80 & 52.97 \\
+ & MLP & 0.1925 & 0.0576 & 56.79 & 52.99 \\
+\midrule
+\textbf{(g) Core Radio Context: Distance + Occlusion + CBR (5-D)} & Logistic & 0.0969 & 0.0711 & 60.53 & 57.37 \\
+ & MLP & 0.0877 & 0.0354 & 61.18 & 58.22 \\
+\midrule
+(h) Extrapolated Sender-Link Context (5-D) & Logistic & 0.1491 & 0.0845 & 60.06 & 56.79 \\
+ & MLP & 0.1492 & 0.0856 & 60.06 & 56.78 \\
+\midrule
+(i) Core Radio + Time-of-Day (7-D) & Logistic & 0.0969 & 0.0711 & 60.57 & 57.43 \\
+ & MLP & 0.0878 & 0.0351 & 61.05 & 58.05 \\
+\midrule
+(j) Core Radio + VRU Class (8-D) & Logistic & 0.0969 & 0.0711 & 60.53 & 57.39 \\
+ & MLP & 0.0876 & 0.0353 & 61.16 & 58.21 \\
+\midrule
+(k) Full Context Vector (10-D) & Logistic & 0.0969 & 0.0708 & 60.57 & 57.43 \\
+ & MLP & 0.0882 & 0.0366 & 61.01 & 58.04 \\
+\midrule
+(l) Core Radio + Rolling EMA (6-D) & Logistic & 0.0980 & 0.0733 & 60.53 & 57.38 \\
+ & MLP & 0.0890 & 0.0375 & 60.99 & 58.00 \\
+\bottomrule
+\end{tabular}
+\end{table*}

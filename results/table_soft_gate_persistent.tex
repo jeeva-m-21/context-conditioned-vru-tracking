@@ -1,0 +1,43 @@
+\begin{table*}[!t]
+\caption{Soft Eligibility Gating Performance under I.I.D. and Persistent Clustered Association Swaps (Table IV). Evaluates robustness across corruption levels $\eta \in \{0\%, 5\%, 10\%, 15\%, 20\%\}$.}
+\label{tab:soft_gate_persistent}
+\centering
+\small
+\begin{tabular}{llccccc}
+\toprule
+Error Regime & Corruption $\eta$ & Gating Mode & HOTA $\uparrow$ & IDF1 $\uparrow$ & Brier $\downarrow$ & ECE $\downarrow$ \\
+\midrule
+Regime 1: I.I.D. Swaps & 0\% & Hard Gate & 61.08 & 58.11 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Shared-$\gamma$) & 61.38 & 58.55 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Hypothesis-Conditioned $\gamma_1/\gamma_0$) & 61.38 & 58.55 & 0.0877 & 0.0354 \\
+ & 5\% & Hard Gate & 60.13 & 57.04 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Shared-$\gamma$) & 60.63 & 57.80 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Hypothesis-Conditioned $\gamma_1/\gamma_0$) & 60.63 & 57.80 & 0.0877 & 0.0354 \\
+ & 10\% & Hard Gate & 58.81 & 55.38 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Shared-$\gamma$) & 59.80 & 56.66 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Hypothesis-Conditioned $\gamma_1/\gamma_0$) & 59.80 & 56.66 & 0.0877 & 0.0354 \\
+ & 15\% & Hard Gate & 57.80 & 54.23 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Shared-$\gamma$) & 59.34 & 56.34 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Hypothesis-Conditioned $\gamma_1/\gamma_0$) & 59.34 & 56.34 & 0.0877 & 0.0354 \\
+ & 20\% & Hard Gate & 56.30 & 52.47 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Shared-$\gamma$) & 58.03 & 54.75 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Hypothesis-Conditioned $\gamma_1/\gamma_0$) & 58.03 & 54.75 & 0.0877 & 0.0354 \\
+\midrule
+Regime 2: Clustered Markov Swaps & 0\% & Hard Gate & 61.08 & 58.11 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Shared-$\gamma$) & 61.38 & 58.55 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Hypothesis-Conditioned $\gamma_1/\gamma_0$) & 61.38 & 58.55 & 0.0877 & 0.0354 \\
+ & 5\% & Hard Gate & 51.30 & 46.61 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Shared-$\gamma$) & 53.87 & 49.88 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Hypothesis-Conditioned $\gamma_1/\gamma_0$) & 53.87 & 49.88 & 0.0877 & 0.0354 \\
+ & 10\% & Hard Gate & 47.41 & 42.30 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Shared-$\gamma$) & 50.73 & 46.54 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Hypothesis-Conditioned $\gamma_1/\gamma_0$) & 50.73 & 46.54 & 0.0877 & 0.0354 \\
+ & 15\% & Hard Gate & 46.07 & 40.81 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Shared-$\gamma$) & 49.16 & 44.69 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Hypothesis-Conditioned $\gamma_1/\gamma_0$) & 49.16 & 44.69 & 0.0877 & 0.0354 \\
+ & 20\% & Hard Gate & 45.36 & 40.00 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Shared-$\gamma$) & 48.57 & 44.19 & 0.0877 & 0.0354 \\
+ &  & Soft Gate (Hypothesis-Conditioned $\gamma_1/\gamma_0$) & 48.57 & 44.19 & 0.0877 & 0.0354 \\
+\bottomrule
+\end{tabular}
+\end{table*}

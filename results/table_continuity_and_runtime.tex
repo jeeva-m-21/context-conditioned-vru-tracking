@@ -1,0 +1,48 @@
+\begin{table*}[!t]
+\caption{Track Continuity, Outage Recovery, and Runtime Profile (Table VIII). Reports survival fractions under consecutive miss streaks, mean recovery time after 10-frame outage, and per-frame latency scaling.}
+\label{tab:continuity_and_runtime}
+\centering
+\small
+\begin{tabular}{llccccccc}
+\toprule
+\multicolumn{9}{c}{\textbf{Part A: Track Continuity \& Outage Recovery (Across Datasets)}} \\
+Dataset & Setting & DetA $\uparrow$ & AssA $\uparrow$ & LocA $\uparrow$ & Surv (3-miss) & Surv (5-miss) & Surv (10-miss) & Recovery (frames) $\downarrow$ \\
+\midrule
+R-LiViT & Proposed (Default) & 54.08 & 43.97 & 89.06 & 92.50\% & 84.00\% & 65.00\% & 1.01 \\
+R-LiViT & Proposed (Tuned) & 56.12 & 44.83 & 88.92 & 100.00\% & 84.00\% & 65.00\% & 1.01 \\
+R-LiViT & Fixed-$q$ Baseline & 54.34 & 43.25 & 88.99 & 100.00\% & 84.00\% & 65.00\% & 1.01 \\
+\midrule
+DAIR-V2X-Seq & Proposed (Default) & 54.80 & 44.93 & 89.12 & 92.50\% & 84.00\% & 65.00\% & 1.07 \\
+DAIR-V2X-Seq & Proposed (Tuned) & 56.58 & 45.78 & 89.01 & 100.00\% & 84.00\% & 65.00\% & 1.07 \\
+DAIR-V2X-Seq & Fixed-$q$ Baseline & 54.78 & 44.23 & 89.01 & 100.00\% & 84.00\% & 65.00\% & 1.07 \\
+\midrule
+V2X-Sim & Proposed (Default) & 53.95 & 43.13 & 89.06 & 92.50\% & 84.00\% & 65.00\% & 1.00 \\
+V2X-Sim & Proposed (Tuned) & 55.85 & 43.72 & 88.94 & 100.00\% & 84.00\% & 65.00\% & 1.00 \\
+V2X-Sim & Fixed-$q$ Baseline & 53.70 & 42.33 & 88.96 & 100.00\% & 84.00\% & 65.00\% & 1.00 \\
+\midrule
+\multicolumn{9}{c}{\textbf{Part B: Runtime \& Complexity Scaling Profile}} \\
+Tracks $N_T$ & Hypotheses $N_H$ & Feature Extr. & MLP Inference & LMB Update & Total Latency & P99 Latency & Peak RAM \\
+\midrule
+5 & 100 & 0.011~ms & 0.135~ms & 1.818~ms & 1.964~ms & 5.674~ms & 19.6~MB \\
+5 & 250 & 0.011~ms & 0.144~ms & 1.619~ms & 1.774~ms & 2.879~ms & 20.4~MB \\
+5 & 500 & 0.009~ms & 0.106~ms & 1.608~ms & 1.722~ms & 2.453~ms & 21.6~MB \\
+5 & 1000 & 0.009~ms & 0.110~ms & 1.672~ms & 1.791~ms & 2.340~ms & 24.1~MB \\
+10 & 100 & 0.016~ms & 0.171~ms & 4.283~ms & 4.470~ms & 5.754~ms & 20.2~MB \\
+10 & 250 & 0.017~ms & 0.154~ms & 4.162~ms & 4.333~ms & 5.928~ms & 20.9~MB \\
+10 & 500 & 0.016~ms & 0.153~ms & 4.080~ms & 4.248~ms & 5.729~ms & 22.2~MB \\
+10 & 1000 & 0.016~ms & 0.154~ms & 4.057~ms & 4.227~ms & 5.648~ms & 24.7~MB \\
+25 & 100 & 0.035~ms & 0.238~ms & 18.089~ms & 18.362~ms & 23.733~ms & 22.0~MB \\
+25 & 250 & 0.036~ms & 0.250~ms & 18.768~ms & 19.054~ms & 23.450~ms & 22.8~MB \\
+25 & 500 & 0.036~ms & 0.258~ms & 18.806~ms & 19.100~ms & 24.622~ms & 24.0~MB \\
+25 & 1000 & 0.036~ms & 0.245~ms & 19.741~ms & 20.022~ms & 26.289~ms & 26.5~MB \\
+50 & 100 & 0.063~ms & 0.300~ms & 70.702~ms & 71.065~ms & 91.023~ms & 25.0~MB \\
+50 & 250 & 0.061~ms & 0.296~ms & 68.985~ms & 69.343~ms & 79.234~ms & 25.8~MB \\
+50 & 500 & 0.068~ms & 0.315~ms & 76.124~ms & 76.506~ms & 147.067~ms & 27.0~MB \\
+50 & 1000 & 0.064~ms & 0.312~ms & 74.284~ms & 74.660~ms & 123.891~ms & 29.5~MB \\
+100 & 100 & 0.114~ms & 0.389~ms & 242.175~ms & 242.678~ms & 382.707~ms & 31.0~MB \\
+100 & 250 & 0.119~ms & 0.400~ms & 274.638~ms & 275.156~ms & 451.993~ms & 31.8~MB \\
+100 & 500 & 0.113~ms & 0.362~ms & 232.404~ms & 232.878~ms & 257.035~ms & 33.0~MB \\
+100 & 1000 & 0.118~ms & 0.378~ms & 251.310~ms & 251.807~ms & 419.383~ms & 35.5~MB \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,33 @@
+\begin{table*}[!t]
+\caption{Cross-Channel, Cross-Site, and Cross-Dataset Generalization (Table VII). Measures robustness of zero-shot transfer without target-domain retraining.}
+\label{tab:cross_channel_and_domain}
+\centering
+\small
+\begin{tabular}{lllcccc}
+\toprule
+Transfer Type & Source & Target & HOTA $\uparrow$ & IDF1 $\uparrow$ & Brier $\downarrow$ & ECE $\downarrow$ \\
+\midrule
+Cross-Channel & Smooth & Smooth & 62.58 & 60.27 & 0.0997 & 0.0375 \\
+Cross-Channel & Smooth & Stochastic & 61.30 & 58.40 & 0.0883 & 0.0435 \\
+Cross-Channel & Smooth & Burst & 56.46 & 52.70 & 0.2048 & 0.1616 \\
+Cross-Channel & Smooth & Congestion & 62.08 & 59.56 & 0.1034 & 0.0373 \\
+Cross-Channel & Smooth & External_physics & 54.41 & 49.87 & 0.2684 & 0.2310 \\
+Cross-Channel & Stochastic & Smooth & 62.51 & 60.13 & 0.0997 & 0.0416 \\
+Cross-Channel & Stochastic & Stochastic & 61.18 & 58.22 & 0.0877 & 0.0354 \\
+Cross-Channel & Stochastic & Burst & 55.80 & 51.87 & 0.2104 & 0.1718 \\
+Cross-Channel & Stochastic & Congestion & 61.95 & 59.36 & 0.1036 & 0.0449 \\
+Cross-Channel & Stochastic & External_physics & 53.93 & 49.32 & 0.2757 & 0.2457 \\
+Cross-Channel & External_physics & Smooth & 62.71 & 60.38 & 0.1768 & 0.1622 \\
+Cross-Channel & External_physics & Stochastic & 61.65 & 58.77 & 0.1702 & 0.1715 \\
+Cross-Channel & External_physics & Burst & 59.21 & 56.21 & 0.2056 & 0.0775 \\
+Cross-Channel & External_physics & Congestion & 62.68 & 60.36 & 0.1768 & 0.1592 \\
+Cross-Channel & External_physics & External_physics & 56.92 & 53.18 & 0.1959 & 0.0958 \\
+\midrule
+Cross-Site & Site_A & Site_B & 61.78 & 58.77 & 0.0925 & 0.0350 \\
+Cross-Site & Site_B & Site_A & 60.09 & 57.14 & 0.0836 & 0.0364 \\
+\midrule
+Cross-Dataset & R-LiViT & DAIR-V2X-Seq & 62.13 & 59.44 & 0.0880 & 0.0342 \\
+Cross-Dataset & R-LiViT & V2X-Sim & 59.47 & 56.28 & 0.0880 & 0.0335 \\
+\bottomrule
+\end{tabular}
+\end{table*}
